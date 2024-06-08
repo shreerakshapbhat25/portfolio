@@ -1,0 +1,51 @@
+@keyframes moveFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveToTopLeft {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(calc(-100% + 20px)) translateX(calc(-100% + 20px));
+  }
+}
+
+.greeting-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
+
+.greeting {
+  text-align: center;
+  font-size: 30px; /* Increase font size */
+}
+
+.greeting-part {
+  display: inline-block;
+  animation: bounce 1s ease-in-out 1 alternate;
+}
+
+.move-to-top-left {
+  animation: moveToTopLeft 1s ease forwards;
+  padding: 20px;
+}
