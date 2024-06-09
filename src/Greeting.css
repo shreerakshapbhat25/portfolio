@@ -1,21 +1,12 @@
-@keyframes moveFromTop {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 @keyframes bounce {
   0% {
-    transform: translateY(-50%);
-  }
-  50% {
     transform: translateY(0);
   }
+  50% {
+    transform: translateY(-20px);
+  }
   100% {
-    transform: translateY(-50%);
+    transform: translateY(0);
   }
 }
 
@@ -24,28 +15,146 @@
     transform: translateY(0) translateX(0);
   }
   100% {
-    transform: translateY(calc(-100% + 20px)) translateX(calc(-100% + 20px));
+    transform: translateY(-80vh) translateX(-80vw);
   }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes navbarPopUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black; /* Background color set to black */
+  background: linear-gradient(40deg, rgba(65, 41, 87, 0.8), black);
+  color: white; /* Text color set to white */
+}
+
+.navbar {
+  position: fixed;
+  top: 01%;
+  right: 5%;
+  bottom: 01%;
+  transform: translateY(-50%);
+  opacity: -40; /* Hidden initially */
+  transition: opacity 0.5s ease;
+}
+
+.navbar.show {
+  opacity: 1;
+  animation: navbarPopUp 0.1s ease forwards;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 1px 0; /* Margin between navbar items */
+  padding: 0px;
+  display:block;
+  justify-content: flex-end;
+  position: relative;
+  width: 140px; /* Ensure width for the navbar items */
+  height: 140px; /* Ensure height for the navbar items */
+}
+
+.navbar li:nth-child(odd) {
+  transform: translateX(-140px); /* Shift odd items to the left */
+}
+
+.navbar li:nth-child(even) {
+  transform: translateX(10px); /* Shift even items to the right */
+}
+
+.navbar li a, .navbar li {
+  display: block;
+  width: 140px;  /* Increased size */
+  height: 140px; /* Increased size */
+  line-height: 140px; /* Increased size */
+  text-align: center;
+  color: white; /* Text color set to white */
+  background-color: #000000;
+  border-color: rgb(65, 93, 118);
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 19px; /* Increased size */
+  box-shadow: 0 0px 100px rgb(139, 96, 177);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.navbar li:nth-child(odd):hover {
+  background-color: #555; /* Background color on hover for odd elements */
+  transform: scale(1.2) translateX(calc(-140px / 1.2));  /* Scale up and move left */
+}
+.navbar li:nth-child(even):hover {
+  background-color: #555; /* Background color on hover for odd elements */
+  transform: scale(1.2);  /* Scale up and move left */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+.left-image {
+  position: fixed;
+  top: 300px;
+  left: 40px;
+  height: 35vh; /* Set height to 100% of the viewport height */
 }
 
 .greeting-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Adjust as needed */
+  justify-content: left;
+  align-items: left;
 }
 
 .greeting {
-  text-align: center;
-  font-size: 30px; /* Increase font size */
+  font-size: 3.7em;
+  top: 2px;
+  white-space: nowrap;
 }
 
 .greeting-part {
   display: inline-block;
-  animation: bounce 1s ease-in-out 1 alternate;
+  animation: bounce 1s ease-in-out 3;
 }
 
 .move-to-top-left {
-  animation: moveToTopLeft 1s ease forwards;
-  padding: 20px;
+  animation: moveToTopLeft 2s ease forwards;
+}
+
+.about-me {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center vertically */
+  margin-top: 20px;
+  font-size: 1.2em;
+  max-width: 600px;
+  text-align: left;
+  animation: fadeIn 2s ease-in-out;
+  position: relative;
 }
