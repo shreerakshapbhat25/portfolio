@@ -88,16 +88,16 @@ body {
 
 .navbar li a, .navbar li {
   display: block;
-  width: 140px;  /* Increased size */
-  height: 140px; /* Increased size */
-  line-height: 140px; /* Increased size */
+  width: 120px;  /* Increased size */
+  height: 120px; /* Increased size */
+  line-height: 120px; /* Increased size */
   text-align: center;
   color: white; /* Text color set to white */
   background-color: #000000;
   border-color: rgb(65, 93, 118);
   border-radius: 50%;
   text-decoration: none;
-  font-size: 19px; /* Increased size */
+  font-size: 18px; /* Increased size */
   box-shadow: 0 0px 100px rgb(139, 96, 177);
   transition: transform 0.3s ease-in-out;
 }
@@ -121,21 +121,32 @@ body {
   text-align: center;
 }
 .left-image {
-  position: fixed;
-  top: 300px;
-  left: 40px;
-  height: 35vh; /* Set height to 100% of the viewport height */
+  display: flex;
+  position: relative;
+  top: -80px;
+  left: -400px;
+  height: 40vh;
+  padding: 20px;
+  background-color: #000000;
+  animation: wave 4s ease-in-out infinite;
 }
+
+.left-image.hidden {
+  display: none;
+}
+
+
 
 .greeting-container {
   display: flex;
   justify-content: left;
   align-items: left;
+  top: -160px;
 }
 
 .greeting {
   font-size: 3.7em;
-  top: 2px;
+  top: -120px;
   white-space: nowrap;
 }
 
@@ -151,10 +162,11 @@ body {
 .about-me {
   display: flex; /* Use flexbox */
   align-items: center; /* Center vertically */
-  margin-top: 20px;
+  margin-top: -300px;
   font-size: 1.2em;
   max-width: 600px;
   text-align: left;
   animation: fadeIn 2s ease-in-out;
   position: relative;
+  z-index: 2;
 }
